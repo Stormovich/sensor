@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сенсорное меню</title>
+  <style>
+    body {
+      background-color: #000;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .icon-button {
+      width: 200px;
+      height: 200px;
+      background: #111;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .icon-button:hover {
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    }
+
+    .icon-image {
+      width: 100px;
+      height: 100px;
+      background-image: url('earth_icon.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 10px;
+    }
+
+    .icon-label {
+      color: white;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon-button" onclick="launchApp()">
+    <div class="icon-image"></div>
+    <div class="icon-label">Google Earth</div>
+  </div>
+
+  <script>
+    function launchApp() {
+      var now = new Date().valueOf();
+      setTimeout(function () {
+        if (new Date().valueOf() - now > 100) return;
+        window.location.href = "https://play.google.com/store/apps/details?id=com.google.earth";
+      }, 100);
+      window.location.href = "intent://#Intent;scheme=package;package=com.google.earth;end;";
+    }
+  </script>
+</body>
+</html>
